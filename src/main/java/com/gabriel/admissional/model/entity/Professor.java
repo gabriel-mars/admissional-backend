@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "professor")
 public class Professor implements iUsuarios {
 
     @Id
@@ -16,6 +15,11 @@ public class Professor implements iUsuarios {
     private Long id;
     @Getter @Setter private String nome;
     @Getter @Setter private String titulacao;
+    
+    Professor (String nome, String titulacao) {
+    	this.nome = nome;
+    	this.titulacao = titulacao;
+    }
 
     @Override
     public void definirNome(String nome) {
