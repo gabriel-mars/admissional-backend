@@ -22,7 +22,7 @@ public class ProfessorController {
 		service.criarProfessor(professor);
 	}
 	
-	@GetMapping("/aluno")
+	@GetMapping("/professor")
     public List<Professor> listarProfessores() {
         return (List<Professor>) service.buscarTodos();
     }
