@@ -20,8 +20,9 @@ public class Professor implements iUsuarios {
     	this.nome = nome;
     	this.titulacao = titulacao;
     }
+   
 
-    @Override
+	@Override
     public void definirNome(String nome) {
         this.nome = nome;
     }

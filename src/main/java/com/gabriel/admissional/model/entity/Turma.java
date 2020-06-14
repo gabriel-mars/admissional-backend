@@ -11,13 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "turma")
 public class Turma implements iTurma {
 
     @Id
@@ -31,12 +29,19 @@ public class Turma implements iTurma {
     
     @Getter @Setter
     @OneToMany
-    @JoinColumn
+    @JoinColumn(name = "turma_id")
     private List<Aluno> alunos;
     
     @OneToOne
-    @JoinColumn
+    @JoinColumn(name = "professor")
     @Getter @Setter private Professor professor;
+    
+    Turma(String codigo, String sala, Date dataAbertura, Date dataEncerramento) {
+    	this.codigo = codigo;
+    	this.sala = sala;
+    	this.dataAbertura = dataAbertura;
+    	this.dataEncerramento = dataEncerramento;
+    }
 
     @Override
     public Boolean estaAberta() {
