@@ -25,6 +25,6 @@ public class AlunoController {
 
     @GetMapping("/aluno")
     public List<Aluno> listarAlunos() {
-        return (List<Aluno>) service.buscarTodos();
+        return service.buscarTodos();
     }
 }

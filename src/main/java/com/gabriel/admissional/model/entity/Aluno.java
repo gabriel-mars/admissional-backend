@@ -1,8 +1,6 @@
 package com.gabriel.admissional.model.entity;
 
 import com.gabriel.admissional.model.base.iUsuarios;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -11,23 +9,49 @@ public class Aluno implements iUsuarios {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter private Long id;
-    @Getter @Setter private String nome;
-    @Getter @Setter private Integer matricula;
+    private Long id;
+    private String nome;
+    private Integer matricula;
 
     Aluno(String nome, Integer matricula) {
         this.nome = nome;
         this.matricula = matricula;
     }
+    
+    public Aluno() {}
 
-    @Override
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Integer getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Integer matricula) {
+		this.matricula = matricula;
+	}
+
+	@Override
     public void definirNome(String nome) {
         this.nome = nome;
     }
 
     @Override
     public String obterNome() {
-        return null;
+        return this.nome;
     }
 
     @Override
@@ -37,6 +61,6 @@ public class Aluno implements iUsuarios {
 
     @Override
     public Integer obterMatricula() {
-        return null;
+        return this.matricula;
     }
 }

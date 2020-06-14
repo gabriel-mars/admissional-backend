@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.List;
 
@@ -20,12 +22,13 @@ public class Turma implements iTurma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter private Long id;
-    
-    @Getter @Setter private String codigo;
-    @Getter @Setter private String sala;
-    @Getter @Setter private Date dataAbertura;
-    @Getter @Setter private Date dataEncerramento;
+    private Long id;
+    private String codigo;
+    private String sala;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataAbertura;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date dataEncerramento;
     
     @Getter @Setter
     @OneToMany
@@ -34,7 +37,7 @@ public class Turma implements iTurma {
     
     @OneToOne
     @JoinColumn(name = "professor")
-    @Getter @Setter private Professor professor;
+    private Professor professor;
     
     Turma(String codigo, String sala, Date dataAbertura, Date dataEncerramento) {
     	this.codigo = codigo;
@@ -42,8 +45,66 @@ public class Turma implements iTurma {
     	this.dataAbertura = dataAbertura;
     	this.dataEncerramento = dataEncerramento;
     }
+    
+    public Turma() {}
 
-    @Override
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getSala() {
+		return sala;
+	}
+
+	public void setSala(String sala) {
+		this.sala = sala;
+	}
+
+	public Date getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
+	public Date getDataEncerramento() {
+		return dataEncerramento;
+	}
+
+	public void setDataEncerramento(Date dataEncerramento) {
+		this.dataEncerramento = dataEncerramento;
+	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	@Override
     public Boolean estaAberta() {
         return null;
     }
