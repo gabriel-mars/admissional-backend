@@ -5,6 +5,7 @@ import com.gabriel.admissional.model.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,5 +27,10 @@ public class AlunoController {
     @GetMapping("/aluno")
     public List<Aluno> listarAlunos() {
         return service.buscarTodos();
+    }
+    
+    @GetMapping("/aluno/turma/{id}")
+    public List<Aluno> buscarPorTurma(@PathVariable Long id){
+    	return service.buscarPorTurma(id);
     }
 }
