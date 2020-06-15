@@ -115,6 +115,8 @@ public class Turma implements iTurma {
 		
 		if (this.dataEncerramento.getTime() < today) {
 			aberta = false; 
+		} else if (this.getDataAbertura().getTime() > today) {
+			aberta = false;
 		}
 		
         return aberta;
