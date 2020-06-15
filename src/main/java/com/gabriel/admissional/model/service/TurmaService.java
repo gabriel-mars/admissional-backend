@@ -53,12 +53,17 @@ public class TurmaService {
 		professor.setNome(textoSeparado[5].split("=")[1]);
 		professor.setTitulacao(textoSeparado[6].split("=")[1]);
 		
-		turma.setProfessor(professor);
+		turma.definirProfessor(professor);
 		
 		return turma;
 	}
 	
 	public Turma buscarPorId(Long id) {
 		return dao.findById(id);
+	}
+	
+	@Transactional(readOnly = false)
+	public void atualizar(Turma turma) {
+		dao.update(turma);
 	}
 }

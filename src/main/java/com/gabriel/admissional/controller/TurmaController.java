@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gabriel.admissional.model.entity.Aluno;
 import com.gabriel.admissional.model.entity.Turma;
 import com.gabriel.admissional.model.service.TurmaService;
 
@@ -45,5 +47,17 @@ public class TurmaController {
 		System.out.println(turma.estaAberta());
 		
 		return turma.estaAberta();
+	}
+	
+	@PutMapping("/turma/alunos/{id}")
+	public void adicionarAlunos(@PathVariable Long id, @RequestBody Turma obj) {
+		Turma turma = service.buscarPorId(id);
+		List<Aluno> alunos = obj.getAlunos();
+		
+		for(Aluno aluno : alunos) {
+			turma.incluirAluno(aluno);
+		}
+		
+		service.atualizar(turma);
 	}
 }
