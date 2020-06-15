@@ -57,4 +57,8 @@ public class TurmaService {
 		
 		return turma;
 	}
+	
+	public Turma buscarPorId(Long id) {
+		return dao.findById(id);
+	}
 }

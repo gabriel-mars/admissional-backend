@@ -106,7 +106,18 @@ public class Turma implements iTurma {
 
 	@Override
     public Boolean estaAberta() {
-        return null;
+		
+		Date date = new Date();
+		
+		Long today = date.getTime();
+		
+		Boolean aberta = true;
+		
+		if (this.dataEncerramento.getTime() < today) {
+			aberta = false; 
+		}
+		
+        return aberta;
     }
 
     @Override
