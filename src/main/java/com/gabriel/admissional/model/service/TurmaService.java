@@ -16,6 +16,8 @@ import com.gabriel.admissional.model.entity.Turma;
 @Transactional(readOnly = true)
 public class TurmaService {
 	
+	// Service responsável por gerenciar a entidade Turma
+	
 	@Autowired
 	private TurmaDAO dao;
 	
@@ -35,6 +37,7 @@ public class TurmaService {
 		return dao.findAll();
 	}
 	
+	// Método para conversão do objeto recebido do front-end para a entidade Turma
 	public Turma converterObject(Object obj) throws ParseException {
 		Turma turma = new Turma();
 		Professor professor = new Professor();

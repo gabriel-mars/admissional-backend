@@ -20,6 +20,8 @@ import com.gabriel.admissional.model.service.TurmaService;
 @RestController
 public class TurmaController {
 	
+	// Rest Controller responsável por gerenciar os endpoints de aluno
+	
 	@Autowired
 	private TurmaService service;
 

@@ -14,6 +14,8 @@ import com.gabriel.admissional.model.entity.Aluno;
 @Transactional(readOnly = true)
 public class AlunoService {
 	
+	// Service responsável por gerenciar a entidade Aluno
+	
 	@Autowired
 	private AlunoDAO dao;
 	
@@ -31,6 +33,7 @@ public class AlunoService {
 		return dao.findAll();
 	}
 	
+	// Métodos para conversão do retorno do banco para a entidade Aluno
 	public List<Aluno> buscarPorTurma(Long id){
 		Aluno aluno = null;
 		List<Aluno> alunos = new ArrayList<Aluno>();

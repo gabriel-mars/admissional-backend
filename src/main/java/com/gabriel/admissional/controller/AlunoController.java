@@ -15,6 +15,8 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class AlunoController {
+	
+	// Rest Controller responsável por gerenciar os endpoints de aluno
 
     @Autowired
     private AlunoService service;

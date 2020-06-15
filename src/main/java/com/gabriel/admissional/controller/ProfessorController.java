@@ -17,6 +17,8 @@ import com.gabriel.admissional.model.service.ProfessorService;
 @RestController
 public class ProfessorController {
 	
+	// Rest Controller responsável por gerenciar os endpoints de professor
+	
 	@Autowired
 	private ProfessorService service;
 	

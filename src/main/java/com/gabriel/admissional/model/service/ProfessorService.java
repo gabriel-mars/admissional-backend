@@ -13,6 +13,8 @@ import com.gabriel.admissional.model.entity.Professor;
 @Transactional(readOnly = true)
 public class ProfessorService {
 	
+	// Service responsável por gerenciar a entidade Professor
+	
 	@Autowired
 	private ProfessorDAO dao;
 	
