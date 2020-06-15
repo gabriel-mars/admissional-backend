@@ -38,3 +38,13 @@ Nele há algumas informações que precisam ser modificadas para o acesso ao ban
 2- `spring.datasource.username = postgres`: Alterar o usuário do banco de acordo com suas configurações.
 
 3- `spring.datasource.password = postgres`: Alterar a senha do usuário para o banco de acordo com suas configurações.
+
+## Stack utilizada
+
+1- IDE: Eclipse
+
+2- Servidor Web: Tomcat 8
+
+3- JDK/JRE: 8
+
+4- Banco de Dados: PostgreSQL 10.5
