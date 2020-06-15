@@ -48,4 +48,22 @@ public class AlunoService {
 		}
 		return alunos;
 	}
+	
+	public List<Aluno> buscarPorSemTurma() {
+		Aluno aluno = null;
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		
+		List<Object[]> aux = dao.findByNoTurma();
+		
+		for (Object[] obj : aux) {
+			aluno = new Aluno();
+			
+			aluno.setId(Long.parseLong(obj[0].toString()));
+			aluno.definirMatricula(Integer.parseInt(obj[1].toString()));
+			aluno.definirNome(obj[2].toString());
+			
+			alunos.add(aluno);
+		}
+		return alunos;
+	}
 }

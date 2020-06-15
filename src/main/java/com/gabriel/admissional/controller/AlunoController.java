@@ -33,4 +33,9 @@ public class AlunoController {
     public List<Aluno> buscarPorTurma(@PathVariable Long id){
     	return service.buscarPorTurma(id);
     }
+    
+    @GetMapping("/aluno/turma/not")
+    public List<Aluno> buscarPorSemTurma() {
+        return service.buscarPorSemTurma();
+    }
 }

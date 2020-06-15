@@ -22,4 +22,10 @@ public class AlunoDAO extends BaseDAO<Aluno, Long> {
     	Query query = manager.createNativeQuery("SELECT * FROM aluno A WHERE A.turma_id = ?").setParameter(1, id);
     	return query.getResultList();
     }
+	
+	@SuppressWarnings("unchecked")
+	public List<Object[]> findByNoTurma(){
+    	Query query = manager.createNativeQuery("SELECT * FROM aluno A WHERE A.turma_id IS NULL");
+    	return query.getResultList();
+    }
 }
